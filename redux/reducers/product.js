@@ -1,4 +1,4 @@
-import { ALL_PRODUCTS_FAIL, GET_ALL_PRODUCTS } from "../actions/types";
+import { ALL_PRODUCTS_FAIL, GET_ALL_PRODUCTS, LOADING } from "../actions/types";
 
 const initialState = {
   products: [],
@@ -10,6 +10,11 @@ const initialState = {
 export default function (state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
+    case LOADING:
+      return {
+        ...state,
+        loading: true,
+      };
     case GET_ALL_PRODUCTS:
       return {
         ...state,

@@ -1,16 +1,20 @@
 import React from "react";
-import { View, StyleSheet, TouchableNativeFeedbackBase } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+  Text,
+} from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function Card({ title, description, imageUrl, onPress }) {
   return (
-    <TouchableNativeFeedback onPress={onPress}>
+    <TouchableWithoutFeedback onPress={onPress}>
       <View style={styles.card}>
         <Image
           style={styles.image}
-          tint="light"
-          preview={{ uri: thumbnailUrl }}
-          uri={imageUrl}
+          source={{ uri: `http://192.168.1.122:5000/${imageUrl}` }}
         />
         <View style={styles.detailsContainer}>
           <Text style={styles.title} numberOfLines={1}>
@@ -21,7 +25,7 @@ export default function Card({ title, description, imageUrl, onPress }) {
           </Text>
         </View>
       </View>
-    </TouchableNativeFeedback>
+    </TouchableWithoutFeedback>
   );
 }
 
